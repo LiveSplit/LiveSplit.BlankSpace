@@ -38,8 +38,8 @@ public class BlankSpace : IComponent
         float width, float height, GradientType gradientType)
     {
         if (settingsColor1.A > 0
-        || gradientType != GradientType.Plain
-        && settingsColor2.A > 0)
+        || (gradientType != GradientType.Plain
+        && settingsColor2.A > 0))
         {
             var gradientBrush = new LinearGradientBrush(
                         new PointF(0, 0),
