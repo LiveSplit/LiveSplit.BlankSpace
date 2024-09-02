@@ -37,7 +37,7 @@ public partial class BlankSpaceSettings : UserControl
 
     private void cmbGradientType_SelectedIndexChanged(object sender, EventArgs e)
     {
-        var selectedText = cmbGradientType.SelectedItem.ToString();
+        string selectedText = cmbGradientType.SelectedItem.ToString();
         btnColor1.Visible = selectedText != "Plain";
         btnColor2.DataBindings.Clear();
         btnColor2.DataBindings.Add("BackColor", this, btnColor1.Visible ? "BackgroundColor2" : "BackgroundColor", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -78,7 +78,7 @@ public partial class BlankSpaceSettings : UserControl
 
     public XmlNode GetSettings(XmlDocument document)
     {
-        var parent = document.CreateElement("Settings");
+        XmlElement parent = document.CreateElement("Settings");
         CreateSettingsNode(document, parent);
         return parent;
     }
