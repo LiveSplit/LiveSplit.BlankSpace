@@ -15,7 +15,10 @@ public class BlankSpaceFactory : IComponentFactory
 
     public ComponentCategory Category => ComponentCategory.Other;
 
-    public IComponent Create(LiveSplitState state) => new BlankSpace();
+    public IComponent Create(LiveSplitState state)
+    {
+        return new BlankSpace();
+    }
 
     public string UpdateName => ComponentName;
 
