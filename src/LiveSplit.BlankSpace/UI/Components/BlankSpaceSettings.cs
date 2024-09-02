@@ -35,7 +35,7 @@ public partial class BlankSpaceSettings : UserControl
         btnColor2.DataBindings.Add("BackColor", this, "BackgroundColor2", false, DataSourceUpdateMode.OnPropertyChanged);
     }
 
-    void cmbGradientType_SelectedIndexChanged(object sender, EventArgs e)
+    private void cmbGradientType_SelectedIndexChanged(object sender, EventArgs e)
     {
         var selectedText = cmbGradientType.SelectedItem.ToString();
         btnColor1.Visible = selectedText != "Plain";
@@ -44,7 +44,7 @@ public partial class BlankSpaceSettings : UserControl
         GradientString = cmbGradientType.SelectedItem.ToString();
     }
 
-    void BlankSpaceSettings_Load(object sender, EventArgs e)
+    private void BlankSpaceSettings_Load(object sender, EventArgs e)
     {
         if (Mode == LayoutMode.Horizontal)
         {
