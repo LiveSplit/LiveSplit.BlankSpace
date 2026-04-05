@@ -3,10 +3,14 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Xml;
 
+using LiveSplit.Localization;
+
 namespace LiveSplit.UI.Components;
 
 public partial class BlankSpaceSettings : UserControl
 {
+    private static string T(string source) => UiLocalizer.Translate(source, LanguageResolver.ResolveCurrentCultureLanguage());
+
     public float SpaceHeight { get; set; }
     public float SpaceWidth { get; set; }
 
@@ -52,7 +56,7 @@ public partial class BlankSpaceSettings : UserControl
             trkSize.Minimum = 1;
             trkSize.Maximum = 1000;
             trkSize.DataBindings.Add("Value", this, "SpaceWidth", false, DataSourceUpdateMode.OnPropertyChanged);
-            lblSize.Text = "Width:";
+            lblSize.Text = T("Width:");
         }
         else
         {
@@ -60,7 +64,7 @@ public partial class BlankSpaceSettings : UserControl
             trkSize.Minimum = 1;
             trkSize.Maximum = 1000;
             trkSize.DataBindings.Add("Value", this, "SpaceHeight", false, DataSourceUpdateMode.OnPropertyChanged);
-            lblSize.Text = "Height:";
+            lblSize.Text = T("Height:");
         }
     }
 
