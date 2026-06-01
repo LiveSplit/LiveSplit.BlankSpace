@@ -1,10 +1,9 @@
-﻿using System;
+﻿using LiveSplit.Model;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-
-using LiveSplit.Model;
 
 namespace LiveSplit.UI.Components;
 
@@ -34,22 +33,22 @@ public class BlankSpace : IComponent
         Settings = new BlankSpaceSettings();
     }
 
-    public static void DrawBackground(Graphics g, Color settingsColor1, Color settingsColor2,
-        float width, float height, GradientType gradientType)
+    public static void DrawBackground(
+        Graphics g,
+        Color settingsColor1,
+        Color settingsColor2,
+        float width,
+        float height,
+        GradientType gradientType)
     {
         if (settingsColor1.A > 0
-        || (gradientType != GradientType.Plain
-        && settingsColor2.A > 0))
+            || (gradientType != GradientType.Plain && settingsColor2.A > 0))
         {
             var gradientBrush = new LinearGradientBrush(
-                        new PointF(0, 0),
-                        gradientType == GradientType.Horizontal
-                        ? new PointF(width, 0)
-                        : new PointF(0, height),
-                        settingsColor1,
-                        gradientType == GradientType.Plain
-                        ? settingsColor1
-                        : settingsColor2);
+                new PointF(0, 0),
+                gradientType == GradientType.Horizontal ? new PointF(width, 0) : new PointF(0, height),
+                settingsColor1,
+                gradientType == GradientType.Plain ? settingsColor1 : settingsColor2);
             g.FillRectangle(gradientBrush, 0, 0, width, height);
         }
     }

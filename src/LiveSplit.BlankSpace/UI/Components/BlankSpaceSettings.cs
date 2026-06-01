@@ -1,9 +1,8 @@
-﻿using System;
+﻿using LiveSplit.Localization;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Xml;
-
-using LiveSplit.Localization;
 
 namespace LiveSplit.UI.Components;
 
